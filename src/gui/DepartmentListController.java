@@ -59,12 +59,12 @@ public class DepartmentListController implements Initializable {
 		
 	}
 
-	public void updateTableView() {
+	public void updateTableView() { // este metodo deve ser chamado quando na tela da lista
 		if(service == null) {
 			throw new IllegalStateException("Service was null!");
 		}
 		List<Department> list = service.findAll();
-		obsList = FXCollections.observableArrayList(list);
+		obsList = FXCollections.observableArrayList(list); // cria a Observable List e passa ela pra tableview (tabela)
 		tableViewDepartment.setItems(obsList);
 	}
 }

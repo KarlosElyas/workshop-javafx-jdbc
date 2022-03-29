@@ -51,7 +51,7 @@ public class MainViewController implements Initializable {
 
 	}
 
-	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
+	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) { // Consumer é Lambda
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			VBox newVBox = loader.load();
@@ -63,7 +63,7 @@ public class MainViewController implements Initializable {
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
 			
-			T controller = loader.getController();
+			T controller = loader.getController(); // ativando função lambda do parametro
 			initializingAction.accept(controller);
 			
 		} catch (IOException e) {
