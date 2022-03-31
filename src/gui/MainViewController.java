@@ -63,7 +63,7 @@ public class MainViewController implements Initializable {
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
 			
-			T controller = loader.getController(); // ativando função lambda do parametro
+			T controller = loader.getController(); // ativando função lambda do parametro, acessando controler da view atual
 			initializingAction.accept(controller);
 			
 		} catch (IOException e) {
